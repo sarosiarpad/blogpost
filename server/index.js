@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
@@ -8,8 +9,8 @@ app.use(cors());
 
 const db = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
-    password: 'password',
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     database: 'blogpost'
 });
 
@@ -67,5 +68,5 @@ app.delete('/posts/:id', (req, res) => {
     });
 });
 
-const PORT = 5000;
+const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server is running on port ${PORT}`));
