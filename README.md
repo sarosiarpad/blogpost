@@ -9,7 +9,7 @@
    PORT=5000
    ```
 
-Backend indítása
+## Backend indítása
 ```
   cd server
   npm i
